@@ -7,7 +7,6 @@ import Menu from '@mui/material/Menu';
 import Card from '@mui/material/Card';
 import Chip from '@mui/material/Chip';
 import Link from '@mui/material/Link';
-import { Button } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import MenuItem from '@mui/material/MenuItem';
@@ -20,7 +19,6 @@ import TodayIcon from '@mui/icons-material/Today';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import { ExpandCircleDown } from '@mui/icons-material';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ForkRightIcon from '@mui/icons-material/ForkRight';
@@ -177,9 +175,7 @@ const RepositoryCard = ({
         <IconButton onClick={handleClick}>
           <MoreHorizIcon />
         </IconButton>
-        <Button variant="text" endIcon={<ExpandCircleDown />} onClick={handleClick}>
-          Details
-        </Button>
+
         <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
           <MenuItem onClick={handleClose}>Option 1</MenuItem>
           <MenuItem onClick={handleClose}>Option 2</MenuItem>

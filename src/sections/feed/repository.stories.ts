@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import RepositoryCard from './repository';
+import RepositoryCard from './repository-card';
 
 const repositoryData = {
   id: 10270250,
