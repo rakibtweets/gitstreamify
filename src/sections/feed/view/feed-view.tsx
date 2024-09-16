@@ -1,18 +1,18 @@
 import { useState, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Unstable_Grid2';
+import { Stack } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
 import Typography from '@mui/material/Typography';
 
-import { _products } from 'src/_mock';
+import { repositories } from 'src/_mock/repositories';
 import { DashboardContent } from 'src/layouts/dashboard';
 
-import { ProductItem } from '../product-item';
-import { ProductSort } from '../product-sort';
-import { ProductFilters } from '../product-filters';
+import FeedCards from '../feed-cards';
+import { ProductSort } from '../feed-sort';
+import { ProductFilters } from '../feed-filters';
 
-import type { FiltersProps } from '../product-filters';
+import type { FiltersProps } from '../feed-filters';
 
 // ----------------------------------------------------------------------
 
@@ -86,7 +86,7 @@ export function ProductsView() {
   return (
     <DashboardContent>
       <Typography variant="h4" sx={{ mb: 5 }}>
-        Products
+        Feeds
       </Typography>
 
       <Box
@@ -127,13 +127,9 @@ export function ProductsView() {
         </Box>
       </Box>
 
-      <Grid container spacing={3}>
-        {_products.map((product) => (
-          <Grid key={product.id} xs={12} sm={6} md={3}>
-            <ProductItem product={product} />
-          </Grid>
-        ))}
-      </Grid>
+      <Stack>
+        <FeedCards items={repositories} />
+      </Stack>
 
       <Pagination count={10} color="primary" sx={{ mt: 8, mx: 'auto' }} />
     </DashboardContent>

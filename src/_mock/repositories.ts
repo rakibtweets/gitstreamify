@@ -1,4 +1,105 @@
-export const repositories = [
+export interface IRepository {
+  id: number;
+  node_id: string;
+  name: string;
+  full_name: string;
+  private: boolean;
+  html_url: string;
+  description: string;
+  fork: boolean;
+  url: string;
+  git_url?: string;
+  languages_url: string;
+  created_at: string;
+  updated_at: string;
+  pushed_at: string;
+  homepage: string | null;
+  size: number;
+  stargazers_count: number;
+  watchers_count: number;
+  language: string | null;
+  languageData?: Record<string, number>; // optional as it's not present in all objects
+  forks_count: number;
+  open_issues_count: number;
+  open_issues?: number; // open_issues can be null if not available
+  license: {
+    key: string;
+    name: string;
+    spdx_id: string;
+    url: string;
+    node_id: string;
+    html_url?: string;
+  } | null; // license can be null if not available
+  topics: string[];
+  subscribers_count: number;
+  owner: {
+    login: string;
+    id: number;
+    node_id: string;
+    avatar_url: string;
+    gravatar_id?: string;
+    url?: string;
+    html_url?: string;
+    followers_url?: string;
+    following_url?: string;
+    gists_url?: string;
+    starred_url?: string;
+    subscriptions_url?: string;
+    organizations_url?: string;
+    repos_url?: string;
+    events_url?: string;
+    received_events_url?: string;
+    type?: string;
+    site_admin?: boolean;
+  };
+  forks?: number;
+  watchers?: number;
+  default_branch?: string;
+  is_template?: boolean;
+  has_issues?: boolean;
+  has_projects?: boolean;
+  has_wiki?: boolean;
+  has_pages?: boolean;
+
+  has_downloads?: boolean;
+  archived?: boolean;
+  disabled?: boolean;
+  visibility?: string;
+  permissions?: {
+    pull: boolean;
+    push: boolean;
+    admin: boolean;
+  };
+  allow_rebase_merge?: boolean;
+  allow_squash_merge?: boolean;
+  allow_auto_merge?: boolean;
+  delete_branch_on_merge?: boolean;
+  allow_merge_commit?: boolean;
+  temp_clone_token?: string | null;
+  network_count?: number;
+  organization?: {
+    login: string;
+    id: number;
+    node_id: string;
+    avatar_url: string;
+    gravatar_id: string;
+    url: string;
+    html_url: string;
+    followers_url: string;
+    following_url: string;
+    gists_url?: string;
+    starred_url: string;
+    subscriptions_url: string;
+    organizations_url: string;
+    repos_url: string;
+    events_url: string;
+    received_events_url: string;
+    type: string;
+    site_admin: boolean;
+  } | null;
+}
+
+export const repositories: IRepository[] = [
   {
     id: 10270250,
     node_id: 'MDEwOlJlcG9zaXRvcnkxMDI3MDI1MA==',
@@ -67,7 +168,6 @@ export const repositories = [
     size: 108,
     default_branch: 'master',
     open_issues_count: 0,
-    open_issues: 0,
     is_template: false,
     topics: ['octocat', 'atom', 'electron', 'api'],
     has_issues: true,
@@ -75,7 +175,6 @@ export const repositories = [
     has_wiki: true,
     has_pages: false,
     has_downloads: true,
-    has_discussions: false,
     archived: false,
     disabled: false,
     visibility: 'public',
@@ -121,6 +220,28 @@ export const repositories = [
       received_events_url: 'https://api.github.com/users/octocat/received_events',
       type: 'Organization',
       site_admin: false,
+    },
+    languages_url: '',
+    language: null,
+    owner: {
+      login: '',
+      id: 0,
+      node_id: '',
+      avatar_url: '',
+      gravatar_id: undefined,
+      url: undefined,
+      html_url: undefined,
+      followers_url: undefined,
+      following_url: undefined,
+      gists_url: undefined,
+      starred_url: undefined,
+      subscriptions_url: undefined,
+      organizations_url: undefined,
+      repos_url: undefined,
+      events_url: undefined,
+      received_events_url: undefined,
+      type: undefined,
+      site_admin: undefined,
     },
   },
   {
@@ -199,5 +320,6 @@ export const repositories = [
     allow_merge_commit: true,
     subscribers_count: 42,
     network_count: 0,
+    languages_url: '',
   },
 ];
